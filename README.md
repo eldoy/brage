@@ -1,5 +1,35 @@
+# Brage.js
+
+Concept Javascript component library for Single Page Applications. Very minimal, only 150 lines of code, no dependencies. Does not use a virtual DOM, updates must be done by calling render manually.
+
+Includes complete web pack setup and tests.
+
+## USAGE
+
+Clone the repo, and do ```npm install``` then ```npm run dev```. Start the tests with ```npm run test```.
+
+Do ```npm install -g http-server``` and run ```http-server``` from the ```dist``` directory, then navigate to localhost to view the example app.
+
+```
+section(
+  h1('Header'),
+  p('This is how you use it'),
+  ul({ class: 'list' },
+    li('Steak'),
+    li('Milk'),
+    li('Eggs'),
+    li('Liver')
+  ),
+  aside('Cool?')
+)
+```
+
+
 ## SET UP BABEL
 
+This has already been done, just keeping the info just in case.
+
+```
 npm install babel-preset-env --save-dev
 
 
@@ -29,7 +59,7 @@ package.json
     "node": "^9.0.0"
   }
 }
-
+```
 
 ## TAGS
 
@@ -58,7 +88,7 @@ package.json
 'datalist',
 'dd',
 'del',
-'detailsinformation',
+'details',
 'dfn',
 'div',
 'dl',
@@ -124,7 +154,7 @@ package.json
 'strong',
 'style',
 'sub',
-'summarycontrol',
+'summary',
 'sup',
 'table',
 'tbody',

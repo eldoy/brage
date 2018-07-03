@@ -5,6 +5,7 @@ class AboutView {
     return div(
       h1('About'),
       p('This is about us. We rock.')
+
     )
   }
 }

@@ -5,7 +5,7 @@ beforeEach(reset)
 
 describe('HTML', () => {
 
-  // DOM
+  // AppView
 
   it('should mount header, main and footer', () => {
     appView.render()

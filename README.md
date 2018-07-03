@@ -8,7 +8,7 @@ Includes complete web pack setup and tests.
 
 Clone the repo, and do ```npm install``` then ```npm run dev```. Start the tests with ```npm run test```.
 
-Do ```npm install -g http-server``` and run ```http-server``` from the ```dist``` directory, then navigate to localhost to view the example app.
+Do ```npm install -g live-server``` and run ```live-server --entry-file=./index.html``` from the ```dist``` directory, then navigate to ```http://localhost:8080``` to view the example app.
 
 ```
 section(

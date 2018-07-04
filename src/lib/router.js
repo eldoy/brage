@@ -18,14 +18,29 @@ class Router {
     window.addEventListener('popstate', this.dispatch)
   }
 
-  // Happens on navigation
+  // Register links for navigation
+  registerLinks (links) {
+    for (const link of links) {
+      link.addEventListener('click', this.navigate)
+    }
+  }
+
+  // Happens when you click a registered link
   navigate (event) {
     event.preventDefault()
     const link = event.target
-    this.current = link.pathname
     history.pushState({}, '', link.href)
-    this.render()
+    this.load(link.pathname, link)
+  }
 
+  // Happens on popstate
+  dispatch (event) {
+    event.preventDefault()
+    this.load(window.location.pathname)
+  }
+
+  // Activate the current link
+  activate (link) {
     const links = document.body.querySelectorAll('.router-link')
     for (const a of links) {
       a.classList.remove('active')
@@ -33,21 +48,17 @@ class Router {
     link.classList.add('active')
   }
 
-  // Happens on popstate
-  dispatch (event) {
-    event.preventDefault()
-    this.current = window.location.pathname
-    this.render()
-  }
-
-  render () {
-    // Find the current URL
+  // Load the component into main
+  load (path, link) {
+    if (!link) {
+      link = document.body.querySelector(`a.router-link[href^="${path}"]`)
+    }
     if (!this.main) {
       this.main = document.body.querySelector('main')
     }
-    const component = this.routes[this.current]
-    this.main.innerHTML = ''
-    mount(component.render(), this.main)
+    const view = this.routes[path]
+    mount(view.render(), this.main)
+    this.activate(link)
   }
 }
 

@@ -1,10 +1,12 @@
-import { footer, div } from '../../modules/brage.js'
+import { footer, div, a } from '../../modules/brage.js'
 
 class FooterView {
   render () {
     return (
       footer(
-        div('Created with Brage.js')
+        div('Created with ',
+          a('Brage.js', { href: 'https://github.com/fugroup/brage' })
+        )
       )
     )
   }

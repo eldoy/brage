@@ -27,6 +27,8 @@ section(
 ## TAGS
 All HTML5 tags are supported. If you want to make your own tags for Web Components or similar, use ```t('tagname')``` instead.
 
+Use ```fragment``` if you want to create a document fragment without any tag output.
+
 a,
 abbr,
 address,
@@ -64,6 +66,7 @@ figcaption,
 figure,
 footer,
 form,
+fragment,
 h1,
 h2,
 h3,

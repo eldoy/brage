@@ -1,9 +1,9 @@
-import { mount, span, main, h1, p, div } from '@/modules/brage.js'
+import { mount, fragment, span, main, h1, p, div } from '@/modules/brage.js'
 import { body, reset } from '../setup.js'
 
 beforeEach(reset)
 
-describe('HTML', () => {
+describe('Brage', () => {
 
   // DOM
 
@@ -24,6 +24,13 @@ describe('HTML', () => {
     mount(p, div)
     expect(body()).toEqual('<div><p></p></div>')
   })
+
+  it('should be able to use fragment', () => {
+    var f = fragment(div())
+    mount(f)
+    expect(body()).toEqual('<div></div>')
+  })
+
 
   // TAGS AND ATTRIBUTES
 

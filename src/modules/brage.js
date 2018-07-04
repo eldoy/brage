@@ -22,11 +22,16 @@ const parse = (c) => {
 export const t = (tag, ...c) => {
   let { str = '', atts = {}, children } = parse(c)
 
-  const el = document.createElement(tag)
-  el.textContent = str
+  let el
+  if (tag === 'fragment') {
+    el = document.createDocumentFragment()
+  } else {
+    el = document.createElement(tag)
+    el.textContent = str
 
-  for (const a in atts) {
-    el.setAttribute(a, atts[a])
+    for (const a in atts) {
+      el.setAttribute(a, atts[a])
+    }
   }
 
   for (const child of children) {
@@ -51,6 +56,9 @@ export const mount = (children, parent) => {
     parent.appendChild(child)
   }
 }
+
+// Fragment, element without tags
+export const fragment = (...c) => { return t('fragment', ...c)}
 
 // Tags, all HTML5 tags are available
 export const a = (...c) => { return t('a', ...c)}

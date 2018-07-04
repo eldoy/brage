@@ -1,5 +1,6 @@
 import { mount } from '../modules/brage.js'
 import store from './store.js'
+import util from './util.js'
 import homeView from '../views/site/home-view.js'
 import aboutView from '../views/site/about-view.js'
 
@@ -11,10 +12,7 @@ class Router {
     }
     this.current = '/'
 
-    // Bind to instance
-    this.navigate = this.navigate.bind(this)
-    this.dispatch = this.dispatch.bind(this)
-    this.render = this.render.bind(this)
+    util.autobind(this)
 
     // Init router
     window.addEventListener('popstate', this.dispatch)

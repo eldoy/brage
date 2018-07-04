@@ -1,4 +1,4 @@
-import appView from '../../src/views/app-view.js'
+import appView from '@/views/app-view.js'
 import { body, reset } from '../setup.js'
 
 beforeEach(reset)

@@ -1,4 +1,4 @@
-import { div, h1, p, button, ul, li, mount } from '../../modules/brage.js'
+import { div, h1, p, button, ul, li, mount } from '@/modules/brage.js'
 
 class ListView {
 

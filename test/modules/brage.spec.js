@@ -1,4 +1,4 @@
-import { mount, span, main, h1, p, div } from '../../src/modules/brage.js'
+import { mount, span, main, h1, p, div } from '@/modules/brage.js'
 import { body, reset } from '../setup.js'
 
 beforeEach(reset)

@@ -3,16 +3,18 @@ const parse = (c) => {
   const o = {
     children: []
   }
-  for (let i = 0, l = c.length; i < l; i++) {
-    switch (c[i].constructor) {
+
+  for (const x of c) {
+    switch (x.constructor) {
       case String:
-        o.str = c[i]; break
+        o.str = x; break
       case Object:
-        o.atts = c[i]; break
+        o.atts = x; break
       default:
-        o.children.push(c[i])
+        o.children.push(x)
     }
   }
+
   return o
 }
 
@@ -26,22 +28,25 @@ export const t = (tag, ...c) => {
   for (const a in atts) {
     el.setAttribute(a, atts[a])
   }
+
   for (const child of children) {
     el.appendChild(child)
   }
+
   return el
 }
 
-// Mount
+// Mount elements into and clear out parent
 export const mount = (children, parent) => {
   if (children.constructor !== Array) {
     children = [children]
   }
+
   if (!parent) {
     parent = document.body
   }
-  parent.innerHTML = ''
 
+  parent.innerHTML = ''
   for (const child of children) {
     parent.appendChild(child)
   }

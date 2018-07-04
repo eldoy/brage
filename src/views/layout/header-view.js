@@ -1,5 +1,5 @@
-import { header, nav, a, div } from '../../modules/brage.js'
-import router from '../../lib/router.js'
+import { header, nav, a, div } from '@/modules/brage.js'
+import router from '@/lib/router.js'
 
 class HeaderView {
   render = () => {

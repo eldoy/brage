@@ -1,8 +1,7 @@
-import { mount } from '../modules/brage.js'
-import store from './store.js'
-import homeView from '../views/site/home-view.js'
-import aboutView from '../views/site/about-view.js'
-import listView from '../views/site/list-view.js'
+import { mount } from '@/modules/brage.js'
+import homeView from '@/views/site/home-view.js'
+import aboutView from '@/views/site/about-view.js'
+import listView from '@/views/site/list-view.js'
 
 class Router {
   constructor () {
@@ -40,9 +39,11 @@ class Router {
   // Activate the current link
   activate = (link) => {
     const links = document.body.querySelectorAll('.router-link')
+
     for (const a of links) {
       a.classList.remove('active')
     }
+
     link.classList.add('active')
   }
 
@@ -51,6 +52,7 @@ class Router {
     if (!link) {
       link = document.body.querySelector(`a.router-link[href^="${path}"]`)
     }
+
     if (!this.main) {
       this.main = document.body.querySelector('main')
     }

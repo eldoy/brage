@@ -12,8 +12,7 @@ class HeaderView {
       )
     )
 
-    this.home.addEventListener('click', router.navigate)
-    this.about.addEventListener('click', router.navigate)
+    router.registerLinks([ this.home, this.about ])
 
     return view
   }

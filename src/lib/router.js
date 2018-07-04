@@ -2,12 +2,14 @@ import { mount } from '../modules/brage.js'
 import store from './store.js'
 import homeView from '../views/site/home-view.js'
 import aboutView from '../views/site/about-view.js'
+import listView from '../views/site/list-view.js'
 
 class Router {
   constructor () {
     this.routes = {
       '/': homeView,
-      '/about': aboutView
+      '/about': aboutView,
+      '/list': listView
     }
 
     // Init router

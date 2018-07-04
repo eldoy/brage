@@ -1,7 +1,7 @@
 import { main } from '../../modules/brage.js'
 
 class MainView {
-  render () {
+  render = () => {
     return (
       main()
     )

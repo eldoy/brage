@@ -1,7 +1,7 @@
 import { div, h1, p } from '../../modules/brage.js'
 
 class HomeView {
-  render () {
+  render = () => {
     return(
       div(
         h1('Home'),

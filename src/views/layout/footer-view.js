@@ -1,7 +1,7 @@
 import { footer, div, a } from '../../modules/brage.js'
 
 class FooterView {
-  render () {
+  render = () => {
     return (
       footer(
         div('Created with ',

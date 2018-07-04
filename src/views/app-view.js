@@ -4,7 +4,7 @@ import mainView from './layout/main-view.js'
 import footerView from './layout/footer-view.js'
 
 class AppView {
-  render () {
+  render = () => {
     mount(
       section(
         headerView.render(),

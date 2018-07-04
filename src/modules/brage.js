@@ -33,12 +33,18 @@ export const t = (tag, ...c) => {
 }
 
 // Mount
-export const mount = (child, parent) => {
+export const mount = (children, parent) => {
+  if (children.constructor !== Array) {
+    children = [children]
+  }
   if (!parent) {
     parent = document.body
   }
   parent.innerHTML = ''
-  parent.appendChild(child)
+
+  for (const child of children) {
+    parent.appendChild(child)
+  }
 }
 
 // Tags, all HTML5 tags are available

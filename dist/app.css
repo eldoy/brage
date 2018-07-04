@@ -31,6 +31,24 @@ a:hover {
   text-shadow: lightgreen 0px 1px 1px;
 }
 
+button {
+  background-color: rgb(219, 229, 180);
+  color: #333;
+  font-size: 1rem;
+  border: 1px solid #dfdfdf;
+  padding: 4px 8px;
+  outline: none;
+  box-shadow: 2px 3px #aaa;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  box-shadow: 2px 3px #666;
+}
+
 header {
   padding: 1.618rem 0;
   background-color: rgb(219, 229, 180);

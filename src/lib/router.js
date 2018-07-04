@@ -44,7 +44,7 @@ class Router {
     link.classList.add('active')
   }
 
-  // Load the component into main
+  // Load the view into main
   load = (path, link) => {
     if (!link) {
       link = document.body.querySelector(`a.router-link[href^="${path}"]`)
@@ -52,8 +52,10 @@ class Router {
     if (!this.main) {
       this.main = document.body.querySelector('main')
     }
+
     const view = this.routes[path]
     mount(view.render(), this.main)
+
     this.activate(link)
   }
 }

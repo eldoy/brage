@@ -4,8 +4,10 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack -d --watch",
+    "build": "NODE_ENV=production webpack",
+    "start": "webpack -d --watch",
+    "dev": "concurrently \"npm:start\" \"npm:server\"",
+    "server": "cd dist && live-server --entry-file=./index.html",
     "test": "NODE_ENV=test jest --watch"
   },
   "author": "",

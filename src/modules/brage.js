@@ -26,11 +26,9 @@ export const t = (tag, ...c) => {
   for (const a in atts) {
     el.setAttribute(a, atts[a])
   }
-
   for (const child of children) {
     el.appendChild(child)
   }
-
   return el
 }
 

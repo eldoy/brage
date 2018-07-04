@@ -6,13 +6,13 @@ Includes complete webpack setup and tests. Enjoy!
 
 ## USAGE
 
-Clone the repo, and do ```npm install``` then ```npm run dev```. Start the tests with ```npm run test```.
+Clone the repo, and do ```npm install``` then ```npm run dev```. The live server should start automatically in your browser at ```http://localhost:8080```. Hot code reloading included out of the box.
 
-Do ```npm install -g live-server``` and run ```live-server --entry-file=./index.html``` from the ```dist``` directory, then navigate to ```http://localhost:8080``` in your browser to view the example app. Hot code reloading supported.
+Start the tests with ```npm run test```.
 
 ```javascript
 section(
-  h1('Header'),
+  h1('Brage.js is so easy'),
   p('This is how you use it'),
   ul({ class: 'list' },
     li('Steak'),
@@ -25,6 +25,7 @@ section(
 ```
 
 ## TAGS
+All HTML5 tags are supported. If you want to make your own tags for Web Components or similar, use ```t('tagname')``` instead.
 
 a,
 abbr,

@@ -1,16 +1,16 @@
 # Brage.js
 
-Concept Javascript component library for Single Page Applications. Very minimal, only 150 lines of code, no dependencies. Does not use a virtual DOM, updates must be done by calling render manually.
+Concept Javascript component library for single page web applications. Very minimal, only 150 lines of code, no dependencies, just plain vanilla Javascript (ES6). Does not use a virtual DOM, updates must be done by calling render manually.
 
-Includes complete web pack setup and tests.
+Includes complete webpack setup and tests. Enjoy!
 
 ## USAGE
 
 Clone the repo, and do ```npm install``` then ```npm run dev```. Start the tests with ```npm run test```.
 
-Do ```npm install -g live-server``` and run ```live-server --entry-file=./index.html``` from the ```dist``` directory, then navigate to ```http://localhost:8080``` to view the example app.
+Do ```npm install -g live-server``` and run ```live-server --entry-file=./index.html``` from the ```dist``` directory, then navigate to ```http://localhost:8080``` in your browser to view the example app. Hot code reloading supported.
 
-```
+```javascript
 section(
   h1('Header'),
   p('This is how you use it'),
@@ -56,7 +56,7 @@ package.json
     "test": "NODE_ENV=test jest"
   },
   "engines": {
-    "node": "^9.0.0"
+    "node": "^8.0.0"
   }
 }
 ```

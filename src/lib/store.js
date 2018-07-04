@@ -1,6 +1,5 @@
 class Store {
-  constructor () {
-  }
+  constructor () {}
 }
 
 export default new Store()

@@ -1,6 +1,5 @@
 import { mount } from '../modules/brage.js'
 import store from './store.js'
-import util from './util.js'
 import homeView from '../views/site/home-view.js'
 import aboutView from '../views/site/about-view.js'
 
@@ -10,23 +9,20 @@ class Router {
       '/': homeView,
       '/about': aboutView
     }
-    this.current = '/'
-
-    util.autobind(this)
 
     // Init router
     window.addEventListener('popstate', this.dispatch)
   }
 
   // Register links for navigation
-  registerLinks (links) {
+  registerLinks = (links) => {
     for (const link of links) {
       link.addEventListener('click', this.navigate)
     }
   }
 
   // Happens when you click a registered link
-  navigate (event) {
+  navigate = (event) => {
     event.preventDefault()
     const link = event.target
     history.pushState({}, '', link.href)
@@ -34,13 +30,13 @@ class Router {
   }
 
   // Happens on popstate
-  dispatch (event) {
+  dispatch = (event) => {
     event.preventDefault()
     this.load(window.location.pathname)
   }
 
   // Activate the current link
-  activate (link) {
+  activate = (link) => {
     const links = document.body.querySelectorAll('.router-link')
     for (const a of links) {
       a.classList.remove('active')
@@ -49,7 +45,7 @@ class Router {
   }
 
   // Load the component into main
-  load (path, link) {
+  load = (path, link) => {
     if (!link) {
       link = document.body.querySelector(`a.router-link[href^="${path}"]`)
     }

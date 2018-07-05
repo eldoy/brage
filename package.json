@@ -22,6 +22,7 @@
     "babel-register": "^6.26.0",
     "concurrently": "^3.6.0",
     "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
     "jest": "^23.2.0",
     "live-server": "^1.2.0",
     "node-sass": "^4.9.0",

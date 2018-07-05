@@ -27,7 +27,7 @@ class ListView {
       this.button = button('Shuffle'),
       this.list = ul(...this.items())
     )
-    this.button.addEventListener('click', this.update)
+    this.button.onclick = this.update
 
     return view
   }

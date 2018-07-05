@@ -6,7 +6,7 @@ class HomeView {
     return(
       div(
         h1('Home'),
-        p('Welcome to our home page!'),
+        p('Welcome to our Brage.js demo page!'),
         div(
           img({ src: banner })
         )

@@ -12,13 +12,13 @@ class Router {
     }
 
     // Init router
-    window.addEventListener('popstate', this.dispatch)
+    window.onpopstate = this.dispatch
   }
 
   // Register links for navigation
   registerLinks = (links) => {
     for (const link of links) {
-      link.addEventListener('click', this.navigate)
+      link.onclick = this.navigate
     }
   }
 

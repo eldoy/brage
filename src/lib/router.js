@@ -5,11 +5,11 @@ import listView from '@/views/site/list-view.js'
 
 class Router {
   constructor () {
-    this.routes = {
-      '/': homeView,
-      '/about': aboutView,
-      '/list': listView
-    }
+    this.routes = [
+      [ '/', homeView ],
+      [ '/about', aboutView ],
+      [ '/list', listView ]
+    ]
 
     // Init router
     window.onpopstate = this.dispatch
@@ -36,6 +36,16 @@ class Router {
     this.load(window.location.pathname)
   }
 
+  // Match a route and return a view
+  match = (path) => {
+    for (const entry of this.routes) {
+      let [ route, view ] = entry
+      if (route === path) {
+        return view
+      }
+    }
+  }
+
   // Activate the current link
   activate = (link) => {
     const links = document.body.querySelectorAll('.router-link')
@@ -57,7 +67,7 @@ class Router {
       this.main = document.body.querySelector('main')
     }
 
-    const view = this.routes[path]
+    const view = this.match(path)
     mount(view.render(), this.main)
 
     this.activate(link)

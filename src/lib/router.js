@@ -11,8 +11,27 @@ class Router {
       [ '/list', listView ]
     ]
 
+    // Transform routes
+    this.transformRoutes()
+
     // Init router
     window.onpopstate = this.dispatch
+  }
+
+  // Transform routes to regexp matchers
+  transformRoutes = () => {
+    let sub = /\/:([^\/]+)/gi
+
+    for (let route of this.routes) {
+      let names = []
+      let t = route[0].replace(sub, (match, m1) => {
+        names.push(m1)
+        return '/:([^\/]+)'
+      })
+      let rx = new RegExp(`^${t}$`)
+      route[0] = rx
+      route.push(names)
+    }
   }
 
   // Register links for navigation
@@ -40,7 +59,8 @@ class Router {
   match = (path) => {
     for (const entry of this.routes) {
       let [ route, view ] = entry
-      if (route === path) {
+      console.log(route, view, route.constructor)
+      if (route.test(path)) {
         return view
       }
     }

@@ -20,9 +20,10 @@ class ListView {
     return this.data.map(x => li(x))
   }
 
-  render = () => {
+  render = (message) => {
+    console.log('MESSAGE:', message)
     const view = div(
-      h1('List'),
+      h1(`List: ${message}`),
       p('Listing items and updating them'),
       this.button = button('Shuffle'),
       this.list = ul(...this.items())

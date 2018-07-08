@@ -8,7 +8,7 @@ class Router {
     this.routes = [
       [ '/', homeView ],
       [ '/about', aboutView ],
-      [ '/list', listView ]
+      [ '/list/:message', listView ]
     ]
 
     // Transform routes
@@ -23,14 +23,14 @@ class Router {
     let sub = /\/:([^\/]+)/gi
 
     for (let route of this.routes) {
-      let names = []
+      let props = []
       let t = route[0].replace(sub, (match, m1) => {
-        names.push(m1)
-        return '/:([^\/]+)'
+        props.push(m1)
+        return '/([^/]+)'
       })
-      let rx = new RegExp(`^${t}$`)
+      let rx = new RegExp(`^${t}$`, 'ig')
       route[0] = rx
-      route.push(names)
+      route.push(props)
     }
   }
 
@@ -58,16 +58,25 @@ class Router {
   // Match a route and return a view
   match = (path) => {
     for (const entry of this.routes) {
-      let [ route, view ] = entry
-      console.log(route, view, route.constructor)
+      let [ route, view, ids ] = entry
+
       if (route.test(path)) {
-        return view
+        const props = {}
+        route.lastIndex = 0
+
+        for (const id of ids) {
+          let m = route.exec(path)
+          props[id] = m[1]
+        }
+
+        return [ view, props ]
       }
     }
   }
 
   // Activate the current link
   activate = (link) => {
+    if (!link) { return }
     const links = document.body.querySelectorAll('.router-link')
 
     for (const a of links) {
@@ -87,10 +96,11 @@ class Router {
       this.main = document.body.querySelector('main')
     }
 
-    const view = this.match(path)
-    mount(view.render(), this.main)
-
-    this.activate(link)
+    const [ view, props ] = this.match(path)
+    if (view) {
+      mount(view.render(props), this.main)
+      this.activate(link)
+    }
   }
 }
 

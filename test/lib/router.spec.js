@@ -15,7 +15,7 @@ describe('HTML', () => {
       [ '/about', aboutView ]
     ]
     router.transformRoutes()
-    const view = router.match('/')
+    const [ view, props ] = router.match('/')
     expect(view).toEqual(homeView)
   })
 })

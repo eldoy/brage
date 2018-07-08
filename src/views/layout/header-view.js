@@ -8,7 +8,7 @@ class HeaderView {
         nav(
           this.home = a('Home', { class: 'router-link active', href: '/' }),
           this.about = a('About', { class: 'router-link', href: '/about' }),
-          this.list = a('List', { class: 'router-link', href: '/list' })
+          this.list = a('List', { class: 'router-link', href: '/list/hello' })
         )
       )
     )

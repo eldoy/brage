@@ -20,8 +20,7 @@ class ListView {
     return this.data.map(x => li(x))
   }
 
-  render = (message) => {
-    console.log('MESSAGE:', message)
+  render = ({ message }) => {
     const view = div(
       h1(`List: ${message}`),
       p('Listing items and updating them'),

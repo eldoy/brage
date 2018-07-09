@@ -6,9 +6,9 @@ import listView from '@/views/site/list-view.js'
 class Router {
   constructor () {
     this.routes = [
-      [ '/', homeView ],
-      [ '/about', aboutView ],
-      [ '/list/:message', listView ]
+      { path: '/', view: homeView },
+      { path: '/about', view: aboutView },
+      { path: '/list/:message', view: listView }
     ]
 
     // Transform routes
@@ -22,15 +22,14 @@ class Router {
   transformRoutes = () => {
     let sub = /\/:([^\/]+)/gi
 
-    for (let route of this.routes) {
-      let props = []
-      let t = route[0].replace(sub, (match, m1) => {
-        props.push(m1)
+    for (const route of this.routes) {
+      const params = []
+      const regexp = route.path.replace(sub, (match, str) => {
+        params.push(str)
         return '/([^/]+)'
       })
-      let rx = new RegExp(`^${t}$`, 'ig')
-      route[0] = rx
-      route.push(props)
+      route.regexp = new RegExp(`^${regexp}$`, 'ig')
+      route.params = params
     }
   }
 
@@ -57,17 +56,18 @@ class Router {
 
   // Match a route and return a view
   match = (path) => {
-    for (const entry of this.routes) {
-      let [ route, view, ids ] = entry
+    for (const route of this.routes) {
+      let { regexp, view, params } = route
 
-      if (route.test(path)) {
+      if (regexp.test(path)) {
         const props = {}
-        route.lastIndex = 0
+        regexp.lastIndex = 0
 
-        for (const id of ids) {
-          let m = route.exec(path)
-          props[id] = m[1]
+        for (const p of params) {
+          let m = regexp.exec(path)
+          props[p] = m[1]
         }
+        regexp.lastIndex = 0
 
         return [ view, props ]
       }

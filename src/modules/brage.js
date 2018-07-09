@@ -28,7 +28,9 @@ export const t = (tag, ...a) => {
     el.textContent = str
 
     for (const x in atts) {
-      el.setAttribute(x, atts[x])
+      if (atts[x]) {
+        el.setAttribute(x, atts[x])
+      }
     }
   }
 

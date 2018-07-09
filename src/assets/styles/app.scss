@@ -42,12 +42,16 @@ a:hover {
 
 button {
   background-color: rgb(219, 229, 180);
-  color: #333;
+  color: #111;
   font-size: 1rem;
   border: 1px solid #dfdfdf;
   padding: 4px 8px;
   outline: none;
   box-shadow: 2px 3px #aaa;
+  text-shadow: #fff 0px 1px 1px;
+  border-radius: 5px;
+  position: relative;
+  bottom: 2px;
 }
 
 button:hover {
@@ -56,6 +60,14 @@ button:hover {
 
 button:active {
   box-shadow: 2px 3px #666;
+}
+
+input {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #dfdfdf;
+  padding: 5px 8px;
+  border-radius: 5px;
 }
 
 header {

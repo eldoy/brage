@@ -64,6 +64,12 @@ describe('Brage', () => {
     expect(body()).toEqual('<p class="name"></p>')
   })
 
+  it('should not include an attribute if value is falsy', () => {
+    const tag = p({ class: false })
+    mount(tag)
+    expect(body()).toEqual('<p></p>')
+  })
+
   it('should generate a tag with id', () => {
     const tag = p({ id: 'name' })
     mount(tag)

@@ -11,15 +11,19 @@ describe('HTML', () => {
   // Router
 
   it('should match route to the view', () => {
-    router.transformRoutes()
     const [ view, props ] = router.match('/')
     expect(view).toEqual(homeView)
     const [ view2, props2 ] = router.match('/about')
     expect(view2).toEqual(aboutView)
     const [ view3, props3 ] = router.match('/list/hello')
     expect(view3).toEqual(listView)
-
     const [ view4, props4 ] = router.match('/list/hello')
     expect(view4).toEqual(listView)
+  })
+
+  it('should handle missing route', () => {
+    const [ view, props ] = router.match('/missing')
+    expect(view).toBeUndefined()
+    expect(props).toBeUndefined()
   })
 })

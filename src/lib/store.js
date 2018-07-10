@@ -16,11 +16,11 @@ class Store {
   }
 
   save = () => {
-    window.localStorage.setItem('todos', JSON.stringify(this.todos))
+    localStorage.setItem('todos', JSON.stringify(this.todos))
   }
 
   load = () => {
-    return JSON.parse(window.localStorage.getItem('todos')) || []
+    return JSON.parse(localStorage.getItem('todos')) || []
   }
 }
 

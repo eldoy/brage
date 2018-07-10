@@ -5,6 +5,6 @@ import '@/assets/styles/todo-view.scss'
 
 // Init app
 appView.render()
-router.load(window.location.pathname)
+router.load(location.pathname)
 
 export default appView

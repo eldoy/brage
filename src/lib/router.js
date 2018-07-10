@@ -18,7 +18,7 @@ class Router {
     // Transform routes
     this.transformRoutes()
 
-    // Init router
+    // Dispatch on history popstate
     window.onpopstate = this.dispatch
   }
 
@@ -55,7 +55,7 @@ class Router {
   // Happens on popstate
   dispatch = (event) => {
     event.preventDefault()
-    this.load(window.location.pathname)
+    this.load(location.pathname)
   }
 
   // Match a route and return a view

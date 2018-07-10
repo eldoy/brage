@@ -42,13 +42,9 @@ export const t = (tag, ...a) => {
 }
 
 // Mount elements into and clear out parent
-export const mount = (children, parent) => {
+export const mount = (children, parent = document.body) => {
   if (children.constructor !== Array) {
-    children = [children]
-  }
-
-  if (!parent) {
-    parent = document.body
+    children = [ children ]
   }
 
   parent.innerHTML = ''

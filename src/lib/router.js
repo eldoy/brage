@@ -5,7 +5,6 @@ import listView from '@/views/site/list-view.js'
 import controllerView from '@/views/site/controller-view.js'
 import todoView from '@/views/todo/todo-view.js'
 
-
 const routes = [
   { path: '/', view: homeView },
   { path: '/about', view: aboutView },

@@ -35,7 +35,9 @@ export const t = (tag, ...a) => {
   }
 
   for (const c of children) {
-    el.appendChild(c)
+    if (c) {
+      el.appendChild(c)
+    }
   }
 
   return el

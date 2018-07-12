@@ -129,4 +129,17 @@ describe('Brage', () => {
     mount(tags)
     expect(body()).toEqual('<p><span></span><div></div></p>')
   })
+
+  it('should support conditional elements', () => {
+    const loggedIn = () => {
+      return false
+    }
+    const tags =
+      p(
+        span(),
+        loggedIn() && div()
+      )
+    mount(tags)
+    expect(body()).toEqual('<p><span></span></p>')
+  })
 })

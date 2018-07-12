@@ -1,7 +1,8 @@
-import { mount, fragment, h1, div, ul, li, form, input, button, a } from '@/modules/brage.js'
+import { mount, fragment, label, h1, div, span, ul, li, form, input, button, a } from '@/modules/brage.js'
 import store from '@/lib/store.js'
+import todoListView from './todo-list-view.js'
 
-class TodoListView {
+class TodoView {
 
   createTodo = (event) => {
     event.preventDefault()
@@ -17,54 +18,27 @@ class TodoListView {
   }
 
   update = () => {
-    mount(this.items(), this.todoList)
+    mount(this.counter(), this.itemCount)
+    mount(todoListView.items(), this.todoList)
   }
 
-  getIndex = (el) => {
-    return parseInt(el.getAttribute('data-index').split('-')[1])
+  counter = () => {
+    return label(`${store.todos.length} items`)
   }
 
-  toggle = (event) => {
-    const input = event.currentTarget
-    const index = this.getIndex(input.parentNode)
-    store.todos[index].done = input.checked
-    store.save()
-    input.parentNode.classList.toggle('input-checked')
-  }
-
-  remove = (event) => {
-    event.preventDefault()
-    const link = event.currentTarget
-    const index = this.getIndex(link.parentNode.parentNode)
-    store.remove(index)
-    this.update()
-  }
-
-  items = () => {
-    return store.todos.map((x, i) => {
-      let checkbox, remove
-      const item = li({ class: x.done ? 'input-checked' : false , 'data-index': `index-${i}` },
-        checkbox = input({ type: 'checkbox', checked: x.done }),
-        div(x.name, { class: 'strike' }),
-        div({ class: 'remove' },
-          remove = a('Remove', { href: 'javascript:void(0)' })
-        )
-      )
-
-      checkbox.onclick = this.toggle
-      remove.onclick = this.remove
-      return item
-    })
+  deleter = () => {
+    return a('Delete Checked', { href: 'javascript:void(0)' })
   }
 
   render = () => {
     const view = fragment(
+      this.itemCount = span({ class: 'item-count' }, this.counter()),
       h1('Todo'),
       form(
         this.newInput = input({ class: 'input-wide', type: 'text', placeholder: 'What to do?'}),
         this.createButton = button('Create'),
       ),
-      this.todoList = ul({ class: 'todo-list' }, ...this.items())
+      this.todoList = todoListView.render()
     )
 
     this.createButton.onclick = this.createTodo
@@ -73,4 +47,4 @@ class TodoListView {
   }
 }
 
-export default new TodoListView()
+export default new TodoView()

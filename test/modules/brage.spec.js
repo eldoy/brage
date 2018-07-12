@@ -25,7 +25,7 @@ describe('Brage', () => {
     expect(body()).toEqual('<div><p></p></div>')
   })
 
-  it('should be able to use fragment', () => {
+  it('should be able to mount a fragment', () => {
     var f = fragment(div())
     mount(f)
     expect(body()).toEqual('<div></div>')

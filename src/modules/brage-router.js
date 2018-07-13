@@ -1,6 +1,6 @@
-import { mount } from '@/modules/brage.js'
+import { mount } from './brage-dom.js'
 
-class BrageRouter {
+export class BrageRouter {
   constructor (routes) {
     this.routes = routes
 
@@ -97,5 +97,3 @@ class BrageRouter {
     }
   }
 }
-
-export default BrageRouter

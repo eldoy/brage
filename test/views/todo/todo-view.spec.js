@@ -1,5 +1,5 @@
 import { body, reset } from '../../setup.js'
-import { mount } from '@/modules/brage.js'
+import { mount } from '@/modules/brage-dom.js'
 import todoView from '@/views/todo/todo-view.js'
 import headerView from '@/views/layout/header-view.js'
 

@@ -1,4 +1,4 @@
-import { fragment, div } from '@/modules/brage.js'
+import { fragment, div } from '@/modules/brage-dom.js'
 import store from '@/lib/store.js'
 
 class OutputView {

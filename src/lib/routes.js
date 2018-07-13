@@ -1,4 +1,4 @@
-import Router from '@/modules/brage-router.js'
+import { BrageRouter } from '@/modules/brage-router.js'
 import homeView from '@/views/site/home-view.js'
 import aboutView from '@/views/site/about-view.js'
 import listView from '@/views/site/list-view.js'
@@ -13,4 +13,4 @@ const routes = [
   { path: '/todo', view: todoView }
 ]
 
-export default new Router(routes)
+export default new BrageRouter(routes)

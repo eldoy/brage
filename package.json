@@ -8,7 +8,8 @@
     "start": "webpack -d --watch",
     "dev": "concurrently \"npm:start\" \"npm:server\"",
     "server": "live-server --entry-file=./index.html dist",
-    "test": "NODE_ENV=test jest --watch"
+    "test": "NODE_ENV=test jest --watch",
+    "rollup": "rollup -c"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,8 @@
     "jest-transform-stub": "^1.0.0",
     "live-server": "^1.2.0",
     "node-sass": "^4.9.0",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^3.0.7",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.14.0",
@@ -44,6 +47,8 @@
       "^.+\\.js$": "babel-jest",
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
     },
-    "setupFiles": ["jest-localstorage-mock"]
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
   }
 }

@@ -1,4 +1,4 @@
-import { div, h1, h4, p, i } from '@/modules/brage.js'
+import { div, h1, h4, p, i } from '@/modules/brage-dom.js'
 
 class AboutView {
   render = () => {

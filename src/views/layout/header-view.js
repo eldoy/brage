@@ -1,5 +1,5 @@
-import { header, nav, a, div } from '@/modules/brage.js'
-import router from '@/lib/router.js'
+import { header, nav, a, div } from '@/modules/brage-dom.js'
+import routes from '@/lib/routes.js'
 
 class HeaderView {
   render = () => {
@@ -15,7 +15,7 @@ class HeaderView {
       )
     )
 
-    router.registerLinks([
+    routes.registerLinks([
       this.homeLink,
       this.aboutLink,
       this.listLink,

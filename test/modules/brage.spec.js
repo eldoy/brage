@@ -20,6 +20,8 @@ describe('Brage', () => {
     expect(body()).toEqual('<div></div>')
     append(pTag, document.body)
     expect(body()).toEqual('<div></div><p><span></span></p>')
+    expect(divTag.parent).toBeDefined()
+    expect(pTag.parent).toBeDefined()
   })
 
   it('should append an array of elements', () => {
@@ -29,6 +31,7 @@ describe('Brage', () => {
     const items = [li(), li()]
     append(items, list)
     expect(body()).toEqual('<ul><li></li><li></li></ul>')
+    expect(list.parent).toBeDefined()
   })
 
   // MOUNT
@@ -55,6 +58,7 @@ describe('Brage', () => {
     const f = fragment(div())
     mount(f)
     expect(body()).toEqual('<div></div>')
+    expect(f.parent).toBeDefined()
   })
 
   it('should be able to mount an empty fragment', () => {
@@ -74,6 +78,7 @@ describe('Brage', () => {
     expect(body()).toEqual('<div></div>')
     replace(pTag, divTag)
     expect(body()).toEqual('<p><span></span></p>')
+    expect(pTag.parent).toBeDefined()
   })
 
   it('should replace a list item with a new list item', () => {
@@ -226,11 +231,11 @@ describe('Brage', () => {
         s = span(),
         div()
       ))
-    expect(h.parentNode).toBeNull()
-    expect(s.parentNode).toBeDefined()
-    expect(s.parentNode.constructor).toEqual(HTMLParagraphElement)
+    expect(h.parent).toBeUndefined()
+    expect(s.parent).toBeDefined()
+    expect(s.parent.constructor).toEqual(HTMLParagraphElement)
     mount(tags)
     expect(body()).toEqual('<p><span></span><div></div></p>')
-    expect(h.parentNode.constructor).toEqual(HTMLBodyElement)
+    expect(h.parent.constructor).toEqual(HTMLBodyElement)
   })
 })

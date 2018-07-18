@@ -1,4 +1,4 @@
-import { header, nav, a, div } from '@/modules/brage-dom.js'
+import { header, nav, a, div } from '@/modules/brage.js'
 import routes from '@/lib/routes.js'
 
 class HeaderView {

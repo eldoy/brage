@@ -1,4 +1,4 @@
-import { main } from '@/modules/brage-dom.js'
+import { main } from '@/modules/brage.js'
 
 class MainView {
   render = () => {

@@ -1,4 +1,4 @@
-import { mount, ul, li, div, input, a, img } from '@/modules/brage-dom.js'
+import { mount, ul, li, div, input, a, img } from '@/modules/brage.js'
 import store from '@/lib/store.js'
 import todoView from './todo-view.js'
 import headImage from '@/assets/images/head.jpg'

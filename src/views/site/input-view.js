@@ -1,4 +1,4 @@
-import { mount, fragment, input } from '@/modules/brage-dom.js'
+import { mount, fragment, input } from '@/modules/brage.js'
 import outputView from './output-view.js'
 
 class InputView {

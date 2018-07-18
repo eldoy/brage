@@ -1,4 +1,4 @@
-import { mount, fragment, label, h1, div, span, ul, li, form, input, button, a } from '@/modules/brage-dom.js'
+import { mount, fragment, label, h1, div, span, ul, li, form, input, button, a } from '@/modules/brage.js'
 import store from '@/lib/store.js'
 import todoListView from './todo-list-view.js'
 

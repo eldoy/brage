@@ -1,4 +1,4 @@
-import { footer, div, a } from '@/modules/brage-dom.js'
+import { footer, div, a } from '@/modules/brage.js'
 
 class FooterView {
   render = () => {

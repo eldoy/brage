@@ -1,4 +1,6 @@
-import { mount } from './brage-dom.js'
+"use strict"
+
+import { mount } from './brage.js'
 
 export class BrageRouter {
   constructor (routes) {

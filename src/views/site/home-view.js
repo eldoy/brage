@@ -1,4 +1,4 @@
-import { div, h1, p, img } from '@/modules/brage-dom.js'
+import { div, h1, p, img } from '@/modules/brage.js'
 import banner from '@/assets/images/brage.jpg'
 
 class HomeView {

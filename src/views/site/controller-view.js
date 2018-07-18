@@ -1,4 +1,4 @@
-import { h1, div, p, fragment } from '@/modules/brage-dom.js'
+import { h1, div, p, fragment } from '@/modules/brage.js'
 import inputView from './input-view.js'
 import outputView from './output-view.js'
 

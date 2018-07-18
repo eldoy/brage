@@ -1,7 +1,9 @@
+"use strict"
+
 export { BrageRouter } from './brage-router.js'
+export { mount } from './brage-dom.js'
 export {
   t,
-  mount,
   fragment,
   a,
   abbr,
@@ -112,4 +114,4 @@ export {
   _var,
   video,
   wbr
-} from './brage-dom.js'
+} from './brage-tags.js'

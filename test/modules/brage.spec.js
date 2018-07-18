@@ -11,7 +11,7 @@ describe('Brage', () => {
 
   // APPEND
 
-  it('should replace an element with new elements', () => {
+  it('should append an element', () => {
     const divTag = div()
     const pTag = p(
       span()
@@ -20,6 +20,15 @@ describe('Brage', () => {
     expect(body()).toEqual('<div></div>')
     append(pTag, document.body)
     expect(body()).toEqual('<div></div><p><span></span></p>')
+  })
+
+  it('should append an array of elements', () => {
+    const list = ul()
+    mount(list)
+    expect(body()).toEqual('<ul></ul>')
+    const items = [li(), li()]
+    append(items, list)
+    expect(body()).toEqual('<ul><li></li><li></li></ul>')
   })
 
   // MOUNT

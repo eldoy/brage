@@ -1,8 +1,14 @@
 "use strict"
 
-// Append new element to node
-export const append = (el, node = document.body) => {
-  node.appendChild(el)
+// Append new elements to node
+export const append = (els, node = document.body) => {
+  if (els.constructor !== Array) {
+    els = [els]
+  }
+
+  for (const el of els) {
+    node.appendChild(el)
+  }
 }
 
 // Replace content of node with element

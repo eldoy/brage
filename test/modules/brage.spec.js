@@ -1,4 +1,4 @@
-import { mount, replace, append, insert, fragment, span, main, h1, p, div } from '@/modules/brage.js'
+import { mount, replace, append, insert, fragment, span, main, h1, p, div, ul, li } from '@/modules/brage.js'
 import { body, reset } from '../setup.js'
 
 beforeEach(reset)
@@ -65,6 +65,20 @@ describe('Brage', () => {
     expect(body()).toEqual('<div></div>')
     replace(pTag, divTag)
     expect(body()).toEqual('<p><span></span></p>')
+  })
+
+  it('should replace a list item with a new list item', () => {
+    let item
+    const list = ul(
+      item = li('Hello'),
+      li('Hadet')
+    )
+    const newItem = li('New')
+
+    mount(list)
+    expect(body()).toEqual('<ul><li>Hello</li><li>Hadet</li></ul>')
+    replace(newItem, item)
+    expect(body()).toEqual('<ul><li>New</li><li>Hadet</li></ul>')
   })
 
   // INSERT

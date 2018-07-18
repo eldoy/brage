@@ -36,7 +36,7 @@ class TodoView {
       h1('Todo'),
       form(
         this.newInput = input({ class: 'input-wide', type: 'text', placeholder: 'What to do?'}),
-        this.createButton = button('Create'),
+        this.createButton = button('Create')
       ),
       this.todoList = todoListView.render()
     )

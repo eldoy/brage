@@ -18,19 +18,17 @@ const parse = (a) => {
 
 // Create tags, apply attributes and children
 export const t = (tag, ...a) => {
-  let { str = '', atts = {}, children } = parse(a)
+  const { str = '', atts = {}, children } = parse(a)
 
-  let el
-  if (tag === 'fragment') {
-    el = document.createDocumentFragment()
-  } else {
-    el = document.createElement(tag)
-    el.textContent = str
+  const el = tag === 'fragment' ?
+    document.createDocumentFragment() :
+    document.createElement(tag)
 
-    for (const x in atts) {
-      if (atts[x]) {
-        el.setAttribute(x, atts[x])
-      }
+  el.textContent = str
+
+  for (const x in atts) {
+    if (atts[x]) {
+      el.setAttribute(x, atts[x])
     }
   }
 

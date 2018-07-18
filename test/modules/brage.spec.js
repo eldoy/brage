@@ -31,6 +31,12 @@ describe('Brage', () => {
     expect(body()).toEqual('<div></div>')
   })
 
+  it('should be able to mount an empty fragment', () => {
+    var f = fragment('hello')
+    mount(f)
+    expect(body()).toEqual('hello')
+  })
+
 
   // TAGS AND ATTRIBUTES
 
@@ -141,5 +147,20 @@ describe('Brage', () => {
       )
     mount(tags)
     expect(body()).toEqual('<p><span></span></p>')
+  })
+
+  it('should have a parent if not root', () => {
+    let h, s
+    const tags =
+      h = (p(
+        s = span(),
+        div()
+      ))
+    expect(h.parentNode).toBeNull()
+    expect(s.parentNode).toBeDefined()
+    expect(s.parentNode.constructor).toEqual(HTMLParagraphElement)
+    mount(tags)
+    expect(body()).toEqual('<p><span></span><div></div></p>')
+    expect(h.parentNode.constructor).toEqual(HTMLBodyElement)
   })
 })

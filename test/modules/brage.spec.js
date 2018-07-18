@@ -1,11 +1,28 @@
-import { mount, fragment, span, main, h1, p, div } from '@/modules/brage.js'
+import { mount, replace, append, insert, fragment, span, main, h1, p, div } from '@/modules/brage.js'
 import { body, reset } from '../setup.js'
 
 beforeEach(reset)
 
 describe('Brage', () => {
 
-  // DOM
+  /**
+   DOM
+  **/
+
+  // APPEND
+
+  it('should replace an element with new elements', () => {
+    const divTag = div()
+    const pTag = p(
+      span()
+    )
+    mount(divTag)
+    expect(body()).toEqual('<div></div>')
+    append(pTag, document.body)
+    expect(body()).toEqual('<div></div><p><span></span></p>')
+  })
+
+  // MOUNT
 
   it('should mount tags on body', () => {
     const div = document.createElement('div')
@@ -26,19 +43,47 @@ describe('Brage', () => {
   })
 
   it('should be able to mount a fragment', () => {
-    var f = fragment(div())
+    const f = fragment(div())
     mount(f)
     expect(body()).toEqual('<div></div>')
   })
 
   it('should be able to mount an empty fragment', () => {
-    var f = fragment('hello')
+    const f = fragment('hello')
     mount(f)
     expect(body()).toEqual('hello')
   })
 
+  // REPLACE
 
-  // TAGS AND ATTRIBUTES
+  it('should replace an element with new elements', () => {
+    const divTag = div()
+    const pTag = p(
+      span()
+    )
+    mount(divTag)
+    expect(body()).toEqual('<div></div>')
+    replace(pTag, divTag)
+    expect(body()).toEqual('<p><span></span></p>')
+  })
+
+  // INSERT
+
+  it('should insert an element before another element', () => {
+    const divTag = div()
+    const pTag = p(
+      span()
+    )
+    mount(divTag)
+    expect(body()).toEqual('<div></div>')
+    insert(pTag, divTag)
+    expect(body()).toEqual('<p><span></span></p><div></div>')
+  })
+
+
+  /**
+   TAGS AND ATTRIBUTES
+  **/
 
   it('should generate a main tag', () => {
     const tag = main()
@@ -94,7 +139,9 @@ describe('Brage', () => {
     expect(body()).toEqual('<p id="name" title="hello">hello</p>')
   })
 
-  // NESTING
+  /**
+   NESTING
+  **/
 
   it('should generate a nested tag', () => {
     const tags = p(

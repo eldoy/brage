@@ -1,13 +1,22 @@
 "use strict"
 
-// Mount elements into and clear out parent
-export const mount = (children, parent = document.body) => {
-  if (children.constructor !== Array) {
-    children = [ children ]
-  }
+// Append new element to node
+export const append = (element, node) => {
+  node.appendChild(element)
+}
 
-  parent.innerHTML = ''
-  for (const c of children) {
-    parent.appendChild(c)
-  }
+// Append element into node, clearing out existing content
+export const mount = (element, node = document.body) => {
+  node.innerHTML = ''
+  append(element, node)
+}
+
+// Replace node element with elements
+export const replace = (element, node) => {
+  mount(element, node.parentNode)
+}
+
+// Insert element before node element
+export const insert = (element, node) => {
+  node.parentNode.insertBefore(element, node)
 }

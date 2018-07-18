@@ -1,7 +1,7 @@
 "use strict"
 
 export { BrageRouter } from './brage-router.js'
-export { mount } from './brage-dom.js'
+export { mount, replace, append, insert } from './brage-dom.js'
 export {
   t,
   fragment,

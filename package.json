@@ -1,6 +1,6 @@
 {
   "name": "brage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript component library concept for single page applications. No dependencies, no vdom and very compact. Includes router. 100% test coverage.",
   "main": "dist/brage.js",
   "module": "dist/brage.es.js",

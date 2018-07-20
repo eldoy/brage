@@ -1,7 +1,7 @@
 {
   "name": "brage",
   "version": "1.0.0",
-  "description": "Javascript component library concept for single page applications",
+  "description": "Javascript component library concept for single page applications. No dependencies, no vdom and very compact. Includes router.",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "start": "webpack -d --watch",

@@ -1,7 +1,10 @@
 {
   "name": "brage",
   "version": "1.0.0",
-  "description": "Javascript component library concept for single page applications. No dependencies, no vdom and very compact. Includes router.",
+  "description": "Javascript component library concept for single page applications. No dependencies, no vdom and very compact. Includes router. 100% test coverage.",
+  "main": "dist/brage.js",
+  "module": "dist/brage.es.js",
+  "jsnext:main": "dist/brage.es.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "start": "webpack -d --watch",
@@ -10,8 +13,22 @@
     "test": "NODE_ENV=test jest --watch",
     "rollup": "rollup -c"
   },
-  "author": "",
+  "author": "Vidar",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fugroup/brage.git"
+  },
+  "keywords": [
+    "brage",
+    "tiny",
+    "dom",
+    "library"
+  ],
+  "bugs": {
+    "url": "https://github.com/fugroup/brage/issues"
+  },
+  "homepage": "https://github.com/fugroup/brage",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^23.2.0",

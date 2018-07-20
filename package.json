@@ -1,8 +1,7 @@
 {
   "name": "brage",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "Javascript component library concept for single page applications",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "start": "webpack -d --watch",
@@ -12,7 +11,7 @@
     "rollup": "rollup -c"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^23.2.0",

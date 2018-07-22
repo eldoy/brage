@@ -144,6 +144,7 @@ export const sup = (...a) => { return t('sup', ...a)}
 export const table = (...a) => { return t('table', ...a)}
 export const tbody = (...a) => { return t('tbody', ...a)}
 export const td = (...a) => { return t('td', ...a)}
+export const template = (...a) => { return t('template', ...a)}
 export const textarea = (...a) => { return t('textarea', ...a)}
 export const tfoot = (...a) => { return t('tfoot', ...a)}
 export const th = (...a) => { return t('th', ...a)}

@@ -4,9 +4,15 @@ Concept Javascript component library for single page web applications. Very mini
 
 Includes complete webpack setup and tests. Enjoy!
 
+### INSTALLATION
+
+```npm i brage```
+
 ## USAGE
 
-Clone the repo, and do ```npm install``` then ```npm run dev```. The live server should start automatically in your browser at ```http://localhost:8080```. Hot code reloading included out of the box.
+From within your application views or components do for example ```import { div, a, p, input } from 'brage'``` to include the div, a, p and input tags.
+
+To run the example application, clone the repo, and do ```npm install``` then ```npm run dev```. The live server should start automatically in your browser at ```http://localhost:8080```. Hot code reloading included out of the box.
 
 Start the tests with ```npm run test```.
 
@@ -126,6 +132,7 @@ sup,
 table,
 tbody,
 td,
+template,
 textarea,
 tfoot,
 th,

@@ -1,4 +1,4 @@
-import { BrageRouter } from '@/modules/brage-router.js'
+import { BrageRouter } from '@/modules/brage.js'
 import homeView from '@/views/site/home-view.js'
 import aboutView from '@/views/site/about-view.js'
 import listView from '@/views/site/list-view.js'

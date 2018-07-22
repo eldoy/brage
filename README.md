@@ -118,7 +118,7 @@ Brage comes with a router for your pages.
 ```javascript
 // The view is a class that contains a render function.
 
-import { BrageRouter } from '@/modules/brage-router.js'
+import { BrageRouter } from 'brage'
 import homeView from '@/views/site/home-view.js'
 import aboutView from '@/views/site/about-view.js'
 import listView from '@/views/site/list-view.js'

@@ -35,9 +35,9 @@ section(
 ```
 
 ## API
-```javascript
 Every element has access to its parent through the ```parent``` property.
 
+```javascript
 // Access the parent
 let world
 const list = ul(
@@ -45,10 +45,11 @@ const list = ul(
   world = li('World')
 )
 world.parent === list // true
+```
 
 The Brage DOM methods makes it easy to manipulate the DOM, but you can also just use the standard DOM methods included in all browsers. All Brage tag elements are just normal HTMLElements.
 
-
+```javascript
 /** Mount elements into another element. Default is document.body **/
 
 // Mount list into body

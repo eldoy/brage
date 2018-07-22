@@ -8,6 +8,8 @@ Includes complete webpack setup and tests. Enjoy!
 
 ```npm i brage```
 
+You can also just include the javascript file found in ```dist/brage.js``` in your HTML file.
+
 ## USAGE
 
 From within your application views or components do for example ```import { div, a, p, input } from 'brage'``` to include the div, a, p and input tags.

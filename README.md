@@ -146,6 +146,7 @@ class HeaderView {
     const view = (
       header(
         nav(
+          // Add the router-link class to each router link
           this.homeLink = a('Home', { class: 'router-link active', href: '/' }),
           this.aboutLink = a('About', { class: 'router-link', href: '/about' }),
           this.listLink = a('List', { class: 'router-link', href: '/list/hello' }),
@@ -155,6 +156,7 @@ class HeaderView {
       )
     )
 
+    // Call registerLinks for each link you want to use with the router
     routes.registerLinks([
       this.homeLink,
       this.aboutLink,

@@ -4,13 +4,13 @@ Concept Javascript component library for single page web applications. Very mini
 
 Includes complete webpack setup and tests. Enjoy!
 
-## INSTALLATION
+### INSTALLATION
 
 ```npm i brage```
 
 You can also just include the javascript file found in ```dist/brage.js``` in your HTML file.
 
-## USAGE
+### USAGE
 
 From within your application views or components do for example ```import { div, a, p, input } from 'brage'``` to include the div, a, p and input tags.
 
@@ -34,7 +34,7 @@ section(
 )
 ```
 
-## API
+### API
 Every element has access to its parent through the ```parent``` property.
 
 ```javascript
@@ -81,7 +81,7 @@ insert(p('New'), document.querySelector('.paragraph'))
 replace(p('New'), document.querySelector('.paragraph'))
 ```
 
-## VIEWS
+### VIEWS
 
 The views are the components of Brage. They should be a class or a function instance that has a render function.
 
@@ -111,7 +111,7 @@ Import the view in another file with
 import homeView from '@/views/site/home-view.js'
 ```
 
-## ROUTER
+### ROUTER
 
 Brage comes with a router for your pages.
 
@@ -134,10 +134,57 @@ const routes = [
 ]
 
 export default new BrageRouter(routes)
+```
+
+To add a route, use the ```router-link``` class for your link:
+```javascript
+import { header, nav, a, div } from '@/modules/brage.js'
+import routes from '@/lib/routes.js'
+
+class HeaderView {
+  render = () => {
+    const view = (
+      header(
+        nav(
+          this.homeLink = a('Home', { class: 'router-link active', href: '/' }),
+          this.aboutLink = a('About', { class: 'router-link', href: '/about' }),
+          this.listLink = a('List', { class: 'router-link', href: '/list/hello' }),
+          this.controllerLink = a('Controller', { class: 'router-link', href: '/controller' }),
+          this.todoLink = a('Todo', { class: 'router-link', href: '/todo' })
+        )
+      )
+    )
+
+    routes.registerLinks([
+      this.homeLink,
+      this.aboutLink,
+      this.listLink,
+      this.controllerLink,
+      this.todoLink
+    ])
+
+    return view
+  }
+}
+
+export default new HeaderView()
 
 ```
 
-## TAGS
+Add a ```:``` to you link parts to make your link paths dynamic. ```/users/:id``` will match the link ```/users/1234``` and will give you a props object sent to the ```render``` function in your view that looks like this:
+```javascript
+// Route props are sent to the render function
+render = (props) => {
+  console.log(props) // { id: '1234' }
+}
+
+// Use destructuring to capture the props directly
+render = ({ id }) => {
+  console.log(id) // '1234'
+}
+```
+
+### TAGS
 All HTML5 tags are supported. If you want to make your own tags for Web Components or similar, use ```t('tagname')``` instead.
 
 Use ```fragment``` if you want to create a document fragment without any tag output.

@@ -49,35 +49,34 @@ world.parent === list // true
 
 The Brage DOM methods makes it easy to manipulate the DOM, but you can also just use the standard DOM methods included in all browsers. All Brage tag elements are just normal HTMLElements.
 
+#### Mount
 ```javascript
-/** Mount elements into another element. Default is document.body **/
-
 // Mount list into body
 const list = ul(li('Hello'), li('World'))
 mount(list)
 
 // Mount list into another tag
 mount(list, document.querySelector('#app'))
-
-
-/** Append elements to another element. Default is document.body **/
-
+```
+#### Append
+```javascript
 // Append paragraph to body
 const paragraph = p('Hello world')
 append(paragraph)
 
 // Append paragraph to another element
 append(paragraph, document.querySelector('#app'))
+```
 
-
-/** Insert an element before another element **/
+#### Insert
+```javascript
 
 // Insert a new paragraph before the .paragraph element
 insert(p('New'), document.querySelector('.paragraph'))
+```
 
-
-/** Replace an element **/
-
+#### Replace
+```javascript
 // Replace a paragraph with another paragaph
 replace(p('New'), document.querySelector('.paragraph'))
 ```

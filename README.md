@@ -1,10 +1,10 @@
 # Brage.js
 
-Concept Javascript component library for single page web applications. Very minimal, only 150 lines of code, no dependencies, just plain vanilla Javascript (ES6). Does not use a virtual DOM, updates must be done by calling render manually.
+Concept Javascript component library for single page web applications. Very minimal, only 150 lines of code, no dependencies, just plain vanilla Javascript (ES6). Does not use a virtual DOM, updates must be done by calling render when your data updates.
 
 Includes complete webpack setup and tests. Enjoy!
 
-### INSTALLATION
+## INSTALLATION
 
 ```npm i brage```
 
@@ -16,9 +16,11 @@ From within your application views or components do for example ```import { div,
 
 To run the example application, clone the repo, and do ```npm install``` then ```npm run dev```. The live server should start automatically in your browser at ```http://localhost:8080```. Hot code reloading included out of the box.
 
-Start the tests with ```npm run test```.
+Start the tests with ```npm run test```. Testing brage views is super easy with Jest or JSDOM as everything is just a function.
 
 ```javascript
+// This is what it looks like
+
 section(
   h1('Brage.js is so easy'),
   p('This is how you use it'),
@@ -30,6 +32,109 @@ section(
   ),
   aside('Cool?')
 )
+```
+
+## API
+```javascript
+Every element has access to its parent through the ```parent``` property.
+
+// Access the parent
+let world
+const list = ul(
+  li('Hello'),
+  world = li('World')
+)
+world.parent === list // true
+
+The Brage DOM methods makes it easy to manipulate the DOM, but you can also just use the standard DOM methods included in all browsers. All Brage tag elements are just normal HTMLElements.
+
+
+/** Mount elements into another element. Default is document.body **/
+
+// Mount list into body
+const list = ul(li('Hello'), li('World'))
+mount(list)
+
+// Mount list into another tag
+mount(list, document.querySelector('#app'))
+
+
+/** Append elements to another element. Default is document.body **/
+
+// Append paragraph to body
+const paragraph = p('Hello world')
+append(paragraph)
+
+// Append paragraph to another element
+append(paragraph, document.querySelector('#app'))
+
+
+/** Insert an element before another element **/
+
+// Insert a new paragraph before the .paragraph element
+insert(p('New'), document.querySelector('.paragraph'))
+
+
+/** Replace an element **/
+
+// Replace a paragraph with another paragaph
+replace(p('New'), document.querySelector('.paragraph'))
+```
+
+## VIEWS
+
+The views are the components of Brage. They should be a class or a function instance that has a render function.
+
+```javascript
+import { div, h1, p, img } from '@/modules/brage.js'
+import banner from '@/assets/images/brage.jpg'
+
+class HomeView {
+  render = () => {
+    return(
+      div(
+        h1('Home'),
+        p('Welcome to our Brage.js demo page!'),
+        div(
+          img({ src: banner })
+        )
+      )
+    )
+  }
+}
+
+export default new HomeView()
+```
+
+Import the view in another file with
+```javascript
+import homeView from '@/views/site/home-view.js'
+```
+
+## ROUTER
+
+Brage comes with a router for your pages.
+
+```javascript
+// The view is a class that contains a render function.
+
+import { BrageRouter } from '@/modules/brage-router.js'
+import homeView from '@/views/site/home-view.js'
+import aboutView from '@/views/site/about-view.js'
+import listView from '@/views/site/list-view.js'
+import controllerView from '@/views/site/controller-view.js'
+import todoView from '@/views/todo/todo-view.js'
+
+const routes = [
+  { path: '/', view: homeView },
+  { path: '/about', view: aboutView },
+  { path: '/list/:message', view: listView },
+  { path: '/controller', view: controllerView },
+  { path: '/todo', view: todoView }
+]
+
+export default new BrageRouter(routes)
+
 ```
 
 ## TAGS
